@@ -217,12 +217,10 @@ if __name__ == "__main__":
     test_cases = [i for i in range(6, 26)]
     for a in test_cases:
         n = math.ceil(math.log2(a + 1))
-        if(n % 2 == 1):
+        if(n % 2 == 0):
             n += 1
-        elif(a & (1 << (n - 1))):
-            n += 2
 
-        qa = QuantumFloat(n, 0, name="a")
+        qa = QuantumFloat(n, 0, name="a", signed=True)
         qa[:] = a
         qf = isqrt(qa)
         print(n)
